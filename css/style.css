@@ -1,0 +1,793 @@
+/* =======================================================
+   LISTA DE PRESENTES - FELIPE & NATÁLIA
+   Desenvolvido por Felipe
+   ======================================================= */
+
+/* 1 - Variáveis */
+:root{
+
+    --azul-principal:#88B7D5;
+
+    --azul-claro:#DCEBF5;
+
+    --azul-escuro:#5F87A5;
+
+    --azul-hover:#76A8CA;
+
+    --branco:#FFFFFF;
+
+    --cinza:#666666;
+
+    --cinza-claro:#F7F9FC;
+
+    --borda:#E5ECF2;
+
+    --sombra:0 12px 30px rgba(0,0,0,.08);
+
+    --raio:18px;
+
+    --transicao:.35s;
+
+}
+/* 2 - Reset */
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:var(--cinza-claro);
+
+color:#444;
+
+line-height:1.6;
+
+}
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+/* 3 - Corpo */
+.container{
+
+width:92%;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+/* 4 - Cabeçalho */
+#topo{
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+
+url("img/casal/capa.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+color:white;
+
+}
+
+.overlay{
+
+width:100%;
+
+padding:20px;
+
+}
+
+.cabecalho h1{
+
+font-size:64px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.cabecalho p{
+
+font-size:22px;
+
+max-width:700px;
+
+margin:auto;
+
+margin-bottom:40px;
+
+}
+/* 5 - Botões */
+.botaoPrincipal{
+
+background:var(--azul-principal);
+
+color:white;
+
+border:none;
+
+padding:18px 45px;
+
+font-size:18px;
+
+border-radius:50px;
+
+transition:var(--transicao);
+
+box-shadow:var(--sombra);
+
+}
+
+.botaoPrincipal:hover{
+
+background:var(--azul-hover);
+
+transform:translateY(-3px);
+
+}
+/* 6 - Seções */
+section{
+
+padding:90px 0;
+
+}
+
+section h2{
+
+font-size:40px;
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:var(--azul-escuro);
+
+}
+
+section p{
+
+text-align:center;
+
+max-width:850px;
+
+margin:auto;
+
+color:var(--cinza);
+
+}
+/* 7 - Galeria */
+
+/* 8 - Lista de presentes */
+#listaPresentes{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+margin-top:50px;
+
+}
+/* 9 - Cards */
+#pesquisa{
+
+display:block;
+
+margin:50px auto;
+
+width:100%;
+
+max-width:600px;
+
+padding:18px;
+
+font-size:18px;
+
+border-radius:50px;
+
+border:2px solid var(--borda);
+
+outline:none;
+
+transition:var(--transicao);
+
+}
+
+#pesquisa:focus{
+
+border-color:var(--azul-principal);
+
+}
+/* 10 - Modal */
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.6);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+.modalConteudo{
+
+background:white;
+
+width:90%;
+
+max-width:650px;
+
+border-radius:20px;
+
+padding:30px;
+
+position:relative;
+
+max-height:90vh;
+
+overflow:auto;
+
+}
+
+#fecharModal{
+
+position:absolute;
+
+right:25px;
+
+top:20px;
+
+font-size:32px;
+
+cursor:pointer;
+
+}
+/* 11 - Rodapé */
+footer{
+
+background:var(--azul-principal);
+
+padding:70px 20px;
+
+color:white;
+
+text-align:center;
+
+}
+
+footer h2{
+
+margin-bottom:20px;
+
+}
+/* 12 - Responsividade */
+@media(max-width:768px){
+
+.cabecalho h1{
+
+font-size:42px;
+
+}
+
+.cabecalho p{
+
+font-size:18px;
+
+}
+
+section h2{
+
+font-size:30px;
+
+}
+
+.botaoPrincipal{
+
+width:100%;
+
+max-width:320px;
+
+}
+
+}
+
+.card{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+text-align:center;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+}
+
+.card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+font-size:22px;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+color:#5F87A5;
+
+}
+
+.card button{
+
+background:#88B7D5;
+
+border:none;
+
+padding:15px 25px;
+
+border-radius:40px;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+.valor{
+    font-size:28px;
+    color:#5F87A5;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.tagUnico,
+.tagMultiplo{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+}
+
+.tagUnico{
+
+    background:#EAF5FF;
+
+    color:#3E6B89;
+
+}
+
+.tagMultiplo{
+
+    background:#DFF7EA;
+
+    color:#24764D;
+
+}
+
+.statusDisponivel{
+
+    background:#2ECC71;
+
+    color:white;
+
+    padding:8px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+}
+
+.statusReservado{
+
+    background:#E74C3C;
+
+    color:white;
+
+    padding:8px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+}
+
+.botaoEscolher{
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+/* ==================================================
+   PAINEL ADMINISTRATIVO
+================================================== */
+
+.paginaAdmin{
+    min-height:100vh;
+    background:#f3f7fa;
+}
+
+.topoAdmin{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:25px 5%;
+    background:var(--azul-principal);
+    color:white;
+}
+
+.topoAdmin h1{
+    margin-bottom:5px;
+}
+
+.topoAdmin p{
+    color:white;
+    text-align:left;
+}
+
+.botaoSair,
+.botaoAtualizar{
+    border:none;
+    border-radius:30px;
+    padding:12px 24px;
+    font-weight:600;
+}
+
+.botaoSair{
+    background:white;
+    color:var(--azul-escuro);
+}
+
+.botaoAtualizar{
+    background:var(--azul-principal);
+    color:white;
+}
+
+.conteudoAdmin{
+    width:92%;
+    max-width:1050px;
+    margin:40px auto;
+}
+
+.cabecalhoPendencias{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.cabecalhoPendencias h2{
+    color:var(--azul-escuro);
+}
+
+.cabecalhoPendencias p{
+    text-align:left;
+}
+
+.mensagemPainel{
+    margin:20px 0;
+    padding:15px;
+    border-radius:12px;
+    background:#e7f1f8;
+    color:#43657e;
+    text-align:left;
+}
+
+#painelReservas{
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(300px,1fr)
+    );
+    gap:22px;
+}
+
+.cardReserva{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:var(--sombra);
+}
+
+.cardReserva h3{
+    color:var(--azul-escuro);
+    margin-bottom:8px;
+}
+
+.cardReserva p{
+    text-align:left;
+    margin:8px 0;
+}
+
+.valorReserva{
+    font-size:24px;
+    color:var(--azul-escuro);
+    font-weight:700;
+}
+
+.tipoReserva{
+    display:inline-block;
+    background:var(--azul-claro);
+    color:var(--azul-escuro);
+    border-radius:30px;
+    padding:6px 12px;
+    font-size:14px;
+}
+
+.mensagemReserva{
+    padding:12px;
+    background:#f7f9fc;
+    border-radius:10px;
+}
+
+.avisoReserva{
+    padding:12px;
+    color:#9b2c2c;
+    background:#ffe5e5;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.acoesReserva{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.acoesReserva button{
+    flex:1;
+    border:none;
+    border-radius:12px;
+    padding:13px;
+    font-weight:600;
+}
+
+.botaoConfirmarReserva{
+    background:#2eaf68;
+    color:white;
+}
+
+.botaoCancelarReserva{
+    background:#e6ebef;
+    color:#4d5d68;
+}
+
+.acoesReserva button:disabled{
+    cursor:not-allowed;
+    opacity:.65;
+}
+
+@media(max-width:700px){
+
+    .topoAdmin,
+    .cabecalhoPendencias{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .topoAdmin{
+        text-align:center;
+    }
+
+    .topoAdmin p{
+        text-align:center;
+    }
+
+    .acoesReserva{
+        flex-direction:column;
+    }
+
+}
+
+/* ==================================================
+   ESTATÍSTICAS DO PAINEL ADMINISTRATIVO
+================================================== */
+
+.secaoEstatisticas{
+    margin-bottom:45px;
+}
+
+.tituloEstatisticas{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:22px;
+}
+
+.tituloEstatisticas h2{
+    margin:0 0 6px;
+    color:var(--azul-escuro);
+}
+
+.tituloEstatisticas p{
+    margin:0;
+    text-align:left;
+}
+
+.cardsEstatisticas{
+    display:grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
+    gap:18px;
+}
+
+.cardEstatistica{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    min-height:110px;
+    padding:20px;
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:18px;
+    box-shadow:var(--sombra);
+}
+
+.iconeEstatistica{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:var(--azul-claro);
+    font-size:23px;
+}
+
+.nomeEstatistica{
+    margin:0 0 7px;
+    color:#687985;
+    font-size:14px;
+    line-height:1.35;
+    text-align:left;
+}
+
+.cardEstatistica strong{
+    display:block;
+    color:var(--azul-escuro);
+    font-size:30px;
+    line-height:1;
+}
+
+.cardEstatisticaValor{
+    grid-column:span 2;
+}
+
+.cardEstatisticaValor strong{
+    font-size:27px;
+}
+
+.mensagemEstatisticas{
+    margin:15px 0 0;
+    color:#687985;
+    font-size:14px;
+    text-align:left;
+}
+
+@media(max-width:700px){
+
+    .cardEstatisticaValor{
+        grid-column:span 1;
+    }
+
+    .cardsEstatisticas{
+        grid-template-columns:1fr;
+    }
+
+}
