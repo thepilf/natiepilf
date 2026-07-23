@@ -8,6 +8,8 @@ async function iniciar(){
 
     if(dados == null){
 
+        console.error("Não foi possível carregar os dados.");
+
         return;
 
     }
@@ -122,13 +124,33 @@ function criarCard(presente){
 
 function mostrarPresentes(lista){
 
-    listaPresentes = lista;
+    listaPresentes = lista || [];
 
     const area = document.getElementById("listaPresentes");
 
+    if(!area){
+
+        console.error("A área #listaPresentes não foi encontrada.");
+
+        return;
+
+    }
+
     area.innerHTML = "";
 
-    lista.forEach(presente=>{
+    if(listaPresentes.length === 0){
+
+        area.innerHTML = `
+            <p class="mensagemSemPresentes">
+                Nenhum presente disponível no momento.
+            </p>
+        `;
+
+        return;
+
+    }
+
+    listaPresentes.forEach(presente => {
 
         area.innerHTML += criarCard(presente);
 
