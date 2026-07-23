@@ -15,8 +15,6 @@ async function iniciar(){
     mostrarConfiguracoes(dados.config);
 
     console.log("FOTOS RECEBIDAS:", dados.fotos);
-    
-    mostrarFotos(dados.fotos);
 
     mostrarPresentes(dados.presentes);
 
@@ -33,24 +31,6 @@ function mostrarConfiguracoes(config){
     config.MensagemInicial;
 
 }
-
-function mostrarFotos(fotos){
-
-    const galeria = document.getElementById("galeria");
-
-    galeria.innerHTML = "";
-
-    if(!fotos || fotos.length === 0){
-
-        galeria.innerHTML = `
-            <p class="mensagemSemFotos">
-                As fotos serão adicionadas em breve.
-            </p>
-        `;
-
-        return;
-
-    }
 
     fotos.forEach(foto => {
 
