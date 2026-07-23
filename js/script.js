@@ -6,6 +6,8 @@ async function iniciar(){
 
     const dados = await buscarDados();
 
+    console.log("DADOS RECEBIDOS:", dados);
+
     if(dados == null){
 
         console.error("Não foi possível carregar os dados.");
@@ -13,6 +15,8 @@ async function iniciar(){
         return;
 
     }
+
+    console.log("PRESENTES RECEBIDOS:", dados.presentes);
 
     mostrarConfiguracoes(dados.config);
 
