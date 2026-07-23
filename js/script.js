@@ -6,11 +6,19 @@ async function iniciar(){
 
     const dados = await buscarDados();
 
-    if(dados==null){
+    if(dados == null){
 
         return;
 
     }
+
+    mostrarConfiguracoes(dados.config);
+
+    mostrarFotos(dados.fotos);
+
+    mostrarPresentes(dados.presentes);
+
+}
 
     mostrarConfiguracoes(dados.config);
 
@@ -27,6 +35,40 @@ function mostrarConfiguracoes(config){
     document.getElementById("mensagemPrincipal").innerHTML=
 
     config.MensagemInicial;
+
+}
+
+function mostrarFotos(fotos){
+
+    const galeria = document.getElementById("galeria");
+
+    galeria.innerHTML = "";
+
+    if(!fotos || fotos.length === 0){
+
+        galeria.innerHTML = `
+            <p class="mensagemSemFotos">
+                As fotos serão adicionadas em breve.
+            </p>
+        `;
+
+        return;
+
+    }
+
+    fotos.forEach(foto => {
+
+        const imagem = document.createElement("img");
+
+        imagem.src = "img/casal/" + foto.foto;
+
+        imagem.alt = foto.descricao || "Foto de Felipe e Natália";
+
+        imagem.classList.add("fotoGaleria");
+
+        galeria.appendChild(imagem);
+
+    });
 
 }
 
