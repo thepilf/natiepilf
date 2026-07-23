@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Felipe & Natália | Lista de Presentes</title>
+
+<meta name="description"
+content="Lista de presentes do casamento de Felipe e Natália.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header id="topo">
+
+<div class="overlay">
+
+<div class="cabecalho">
+
+<h1 id="nomesNoivos">
+
+Felipe & Natália
+
+</h1>
+
+<p id="mensagemPrincipal">
+
+Carregando mensagem...
+
+</p>
+
+<a href="#presentes">
+
+<button class="botaoPrincipal">
+
+Escolher um Presente
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section id="historia">
+
+<div class="container">
+
+<h2>Nossa História</h2>
+
+<p id="textoHistoria">
+
+Em breve...
+
+</p>
+
+</div>
+
+</section>
+
+<section id="galeriaPrincipal">
+
+<div class="container">
+
+<h2>Alguns Momentos</h2>
+
+<div id="galeria">
+
+<!-- Fotos serão carregadas aqui -->
+
+</div>
+
+</div>
+
+</section>
+
+<section id="presentes">
+
+<div class="container">
+
+<h2>Lista de Presentes</h2>
+
+<p>
+
+Muito obrigado por fazer parte deste momento tão especial.
+
+</p>
+
+<input
+
+type="text"
+
+id="pesquisa"
+
+placeholder="Pesquisar presente...">
+
+<div id="listaPresentes">
+
+<!-- Os presentes serão criados pelo JavaScript -->
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<h2>
+
+Obrigado pelo carinho ❤️
+
+</h2>
+
+<p>
+
+Esperamos comemorar esse dia tão especial ao lado de vocês.
+
+</p>
+
+<p>
+
+Felipe & Natália
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- Modal -->
+
+<div id="modal" class="modal">
+
+<div class="modalConteudo">
+
+<span id="fecharModal">
+
+&times;
+
+</span>
+
+<div id="conteudoModal">
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/script.js"></script>
+
+<div id="modalPresente" class="modal">
+
+    <div class="modalConteudo">
+
+        <span class="fecharModal" onclick="fecharModal()">&times;</span>
+
+        <img id="modalImagem" class="modalImagem" src="" alt="">
+
+        <h2 id="modalNome"></h2>
+
+        <p id="modalValor" class="modalValor"></p>
+
+        <div class="modalBotoes">
+
+            <button onclick="abrirQRCode()">
+                Ver QR Code
+            </button>
+
+            <button onclick="copiarPix()">
+                PIX Copia e Cola
+            </button>
+
+        </div>
+
+        <hr>
+
+        <label>Nome</label>
+
+        <input
+            type="text"
+            id="nomeConvidado"
+            placeholder="Digite seu nome">
+
+        <label>WhatsApp</label>
+
+        <input
+            type="text"
+            id="whatsappConvidado"
+            placeholder="(66) 99999-9999">
+
+        <label>Mensagem (opcional)</label>
+
+        <textarea
+            id="mensagemConvidado"
+            rows="4"></textarea>
+
+        <button
+            class="botaoConfirmar"
+            onclick="confirmarPagamento()">
+
+            Já realizei o pagamento
+
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.55);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.modalConteudo{
+
+    background:white;
+
+    width:90%;
+
+    max-width:550px;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    position:relative;
+
+}
+
+.fecharModal{
+
+    position:absolute;
+
+    right:20px;
+
+    top:15px;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
+
+.modalImagem{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+}
+
+.modalValor{
+
+    font-size:28px;
+
+    color:#5F87A5;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.modalBotoes{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+}
+
+.modalBotoes button{
+
+    flex:1;
+
+}
+
+.modal input,
+
+.modal textarea{
+
+    width:100%;
+
+    margin-bottom:18px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+}
+
+.botaoConfirmar{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#88B7D5;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
