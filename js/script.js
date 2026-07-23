@@ -6,19 +6,15 @@ async function iniciar(){
 
     const dados = await buscarDados();
 
-    console.log("DADOS RECEBIDOS:", dados);
-
     if(dados == null){
-
-        console.error("Não foi possível carregar os dados.");
 
         return;
 
     }
 
-    console.log("PRESENTES RECEBIDOS:", dados.presentes);
-
     mostrarConfiguracoes(dados.config);
+
+    mostrarFotos(dados.fotos);
 
     mostrarPresentes(dados.presentes);
 
@@ -35,6 +31,24 @@ function mostrarConfiguracoes(config){
     config.MensagemInicial;
 
 }
+
+function mostrarFotos(fotos){
+
+    const galeria = document.getElementById("galeria");
+
+    galeria.innerHTML = "";
+
+    if(!fotos || fotos.length === 0){
+
+        galeria.innerHTML = `
+            <p class="mensagemSemFotos">
+                As fotos serão adicionadas em breve.
+            </p>
+        `;
+
+        return;
+
+    }
 
     fotos.forEach(foto => {
 
@@ -128,33 +142,13 @@ function criarCard(presente){
 
 function mostrarPresentes(lista){
 
-    listaPresentes = lista || [];
+    listaPresentes = lista;
 
     const area = document.getElementById("listaPresentes");
 
-    if(!area){
-
-        console.error("A área #listaPresentes não foi encontrada.");
-
-        return;
-
-    }
-
     area.innerHTML = "";
 
-    if(listaPresentes.length === 0){
-
-        area.innerHTML = `
-            <p class="mensagemSemPresentes">
-                Nenhum presente disponível no momento.
-            </p>
-        `;
-
-        return;
-
-    }
-
-    listaPresentes.forEach(presente => {
+    lista.forEach(presente=>{
 
         area.innerHTML += criarCard(presente);
 
@@ -270,5 +264,39 @@ async function confirmarPagamento(){
     }
 
     alert("Erro ao enviar.");
+
+}
+
+function mostrarFotos(fotos){
+
+    const galeria = document.getElementById("galeria");
+
+    galeria.innerHTML = "";
+
+    if(!fotos || fotos.length === 0){
+
+        galeria.innerHTML = `
+            <p class="mensagemSemFotos">
+                As fotos serão adicionadas em breve.
+            </p>
+        `;
+
+        return;
+
+    }
+
+    fotos.forEach(foto => {
+
+        const imagem = document.createElement("img");
+
+        imagem.src = "img/casal/" + foto.foto;
+
+        imagem.alt = foto.descricao || "Foto de Felipe e Natália";
+
+        imagem.classList.add("fotoGaleria");
+
+        galeria.appendChild(imagem);
+
+    });
 
 }
