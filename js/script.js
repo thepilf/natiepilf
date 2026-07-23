@@ -20,12 +20,6 @@ async function iniciar(){
 
 }
 
-    mostrarConfiguracoes(dados.config);
-
-    mostrarPresentes(dados.presentes);
-
-}
-
 function mostrarConfiguracoes(config){
 
     document.getElementById("nomesNoivos").innerHTML=
