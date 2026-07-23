@@ -14,8 +14,6 @@ async function iniciar(){
 
     mostrarConfiguracoes(dados.config);
 
-    console.log("FOTOS RECEBIDAS:", dados.fotos);
-
     mostrarPresentes(dados.presentes);
 
 }
